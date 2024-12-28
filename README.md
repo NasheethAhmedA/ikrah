@@ -41,6 +41,6 @@ Contact details [Nasheeth Ahmed A](mailto:nasheethahmeda04+ikrah@google.com)
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the (MIT License.)[LICENSE]
 
 
