@@ -1,19 +1,28 @@
 # IKRAH
 
-A new Flutter project that enables users to learn and read Quran in a style of scrolling which people are familiar with.
+Ikrah Allows users to read the Quran in a continuous scrolling format, bookmark verses, add journals, listen to audio recitations, and access translations in English.
+
+## Features
+
+- **User-friendly Interface**: Easy to navigate and use.
+- **Dark Mode**: Switch between light and dark mode.
+- **Scrolling Reading Mode**: Read the Quran in a continuous scrolling format.
+- **Bookmarking**: Save your place and easily return to it.
+- **Journal**: Add your own journals to verses for future reference.
+- **Audio Recitations**: Listen to the Quran being recited.
+- **Play Modes**: Play the recitation in a loop or once or next verse.
+- **Info on Verses**: Access information on verses.
+- **sajda indication**: Indication of verses with sajda.
+- **Translations**: Access translations in English.
 
 ## Features to be Added
 
-- **User-friendly Interface**: Easy to navigate and use.
-- **Scrolling Reading Mode**: Read the Quran in a continuous scrolling format.
-- **Bookmarking**: Save your place and easily return to it.
+- **Multiple Languages**: Support for multiple languages.
 - **Search Functionality**: Quickly find specific verses or chapters.
-- **Notes**: Add notes to verses and surah for future reference.
-- **Comments**: Share your thoughts and reflections on verses.
-- **Audio Recitations**: Listen to the Quran being recited by various Qaris.
-- **Translations**: Access translations in multiple languages.
+- **Comments**: Share your thoughts and reflections on verses to everyone.
+- **More suggestions are welcome!**
 
-## Installation
+## Installation (Development)
 
 To get started with IKRAH, follow these steps:
 
