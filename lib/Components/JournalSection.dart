@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:ikrah/Models/journalentry.dart';
 import 'package:ikrah/Providers/AppDataProvider.dart';
@@ -77,7 +79,7 @@ class JournalSection extends StatelessWidget {
               ),
               focusNode: FocusNode(),
               controller: controller,
-              onTapOutside: (val) {
+              onChanged: (val) {
                 JournalSave();
               },
             ),

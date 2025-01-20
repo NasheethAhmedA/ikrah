@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:convert';
 import 'package:ikrah/Models/bookmark.dart';
 import 'package:ikrah/Services/DataBaseService.dart';
@@ -12,20 +14,21 @@ import 'package:http/http.dart' as http;
 Future<String> getAyahText(
     {required int AyahNo, required String edition}) async {
   final response = await http
-      .get(Uri.parse('http://api.alquran.cloud/v1/ayah/${AyahNo}/${edition}'));
+      .get(Uri.parse('http://api.alquran.cloud/v1/ayah/$AyahNo/$edition'));
   return json.decode(response.body)["data"]["text"] as String;
 }
 
 Future<Map<String, dynamic>> getAyahOBJ({required int AyahNo}) async {
   final response =
-      await http.get(Uri.parse('http://api.alquran.cloud/v1/ayah/${AyahNo}'));
+      await http.get(Uri.parse('http://api.alquran.cloud/v1/ayah/$AyahNo'));
   return json.decode(response.body)["data"] as Map<String, dynamic>;
 }
 
 class AyahReel extends StatefulWidget {
   final int ayahNumber;
   final PageController pageController;
-  AyahReel({
+  const AyahReel({
+    super.key,
     required this.ayahNumber,
     required this.pageController,
   });
@@ -37,7 +40,7 @@ class AyahReel extends StatefulWidget {
 class _AyahReelState extends State<AyahReel> {
   final DataBaseService db = DataBaseService();
   final _player = AudioPlayer();
-  late final AyahOBJ;
+  late final Map<String, dynamic> AyahOBJ;
   late String playmode;
   bool paused = false;
   bool bookmarked = false;
@@ -114,7 +117,9 @@ class _AyahReelState extends State<AyahReel> {
       });
     }
 
-    _player.play();
+    if (!paused) {
+      _player.play();
+    }
   }
 
   @override
@@ -229,8 +234,14 @@ class _AyahReelState extends State<AyahReel> {
                     }
                     showModalBottomSheet(
                         context: context,
+                        isScrollControlled: true,
                         builder: (BuildContext context) {
-                          return JournalSection();
+                          return Padding(
+                            padding: EdgeInsets.only(
+                                bottom:
+                                    MediaQuery.of(context).viewInsets.bottom),
+                            child: JournalSection(),
+                          );
                         });
                   },
                   icon: const Icon(

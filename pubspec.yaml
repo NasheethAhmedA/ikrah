@@ -77,7 +77,7 @@ dev_dependencies:
   flutter_native_splash: ^2.3.10
 
 flutter_native_splash:
-  color: "#00ff00"
+  color: "#329636"
   image: "assets/images/ikrah.png"
   android: true
   ios: true
