@@ -57,6 +57,7 @@ class DataBaseService {
     await db.execute('''
       CREATE TABLE settings (
         DarkMode INTEGER,
+        CheckUpdate INTEGER,
         PlayMode TEXT
       )
     ''');
@@ -70,7 +71,9 @@ class DataBaseService {
     await db.insert('current_ayah', {'ayah': 1});
 
     await db.insert(
-        'settings', Settings(DarkMode: false, PlayMode: 'once').toJson());
+        'settings',
+        Settings(DarkMode: false, CheckUpdate: true, PlayMode: 'once')
+            .toJson());
   }
 
   // Retrieve the current ayah from the database

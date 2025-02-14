@@ -20,8 +20,6 @@ final ThemeData lightTheme = ThemeData(
         Colors.green[800]), // Track color for the switch
     trackOutlineColor: MaterialStateProperty.all(
         Colors.white), // Track outline color for the switch
-    thumbIcon: MaterialStateProperty.all(
-        const Icon(Icons.light_mode)), // Icon for the switch thumb
   ),
 
   // BottomNavigationBar theme
@@ -31,6 +29,12 @@ final ThemeData lightTheme = ThemeData(
     selectedItemColor: Colors.green, // Color for the selected item
     unselectedItemColor: Colors.grey, // Color for the unselected items
   ),
+
+  // FloatingActionButton theme
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor:
+        Colors.green[500], // Background color for the floating action button
+  ),
 );
 
 // Define the dark theme for the application
@@ -38,6 +42,11 @@ final ThemeData darkTheme = ThemeData(
   useMaterial3: true, // Use Material Design 3
   brightness: Brightness.dark, // Set brightness to dark
   colorScheme: const ColorScheme.dark(), // Use the default dark color scheme
+
+  // Icon theme
+  iconTheme: const IconThemeData(
+    color: Colors.white, // Color for the icons
+  ),
 
   // AppBar theme
   appBarTheme: const AppBarTheme(
@@ -52,8 +61,6 @@ final ThemeData darkTheme = ThemeData(
         MaterialStateProperty.all(Colors.black), // Track color for the switch
     trackOutlineColor: MaterialStateProperty.all(
         Colors.white), // Track outline color for the switch
-    thumbIcon: MaterialStateProperty.all(
-        const Icon(Icons.dark_mode)), // Icon for the switch thumb
   ),
 
   // BottomNavigationBar theme
@@ -77,5 +84,11 @@ final ThemeData darkTheme = ThemeData(
       foregroundColor: const MaterialStatePropertyAll(
           Colors.white), // Foreground color for the elevated button
     ),
+  ),
+
+  // FloatingActionButton theme
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(
+    backgroundColor:
+        Colors.black, // Background color for the floating action button
   ),
 );

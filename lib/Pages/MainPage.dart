@@ -8,6 +8,7 @@ import 'package:ikrah/Providers/AppDataProvider.dart';
 import 'package:ikrah/Providers/OptionsProvider.dart';
 import 'package:ikrah/Themes/theme_constants.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -87,6 +88,9 @@ class _MainPageState extends State<MainPage> {
         appBar: AppBar(
           actions: [
             Switch(
+                thumbIcon: context.watch<OptionsProvider>().darkMode
+                    ? MaterialStateProperty.all(const Icon(Icons.dark_mode))
+                    : MaterialStateProperty.all(const Icon(Icons.light_mode)),
                 value: context.watch<OptionsProvider>().darkMode,
                 onChanged: (newValue) {
                   setState(() {
@@ -101,10 +105,69 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
         ),
-        body: Center(
-          child:
-              _pages.elementAt(context.watch<AppDataProvider>().selectedIndex),
-        ),
+        body:
+            Stack(alignment: Alignment.center, fit: StackFit.expand, children: [
+          Center(
+            child: _pages
+                .elementAt(context.watch<AppDataProvider>().selectedIndex),
+          ),
+          context.watch<OptionsProvider>().updateAvailable
+              ? BottomSheet(
+                  enableDrag: false,
+                  elevation: 10,
+                  constraints: const BoxConstraints(maxHeight: 50),
+                  onClosing: () {},
+                  builder: (context) {
+                    return Container(
+                      color: Colors.red,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(
+                                onPressed: () {
+                                  launchUrl(
+                                    Uri.parse(
+                                        "https://github.com/NasheethAhmedA/ikrah/releases/latest/download/ikrah.apk"),
+                                    mode: LaunchMode.externalApplication,
+                                  );
+                                },
+                                icon: const Icon(Icons.launch)),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const Flexible(
+                                  child: Text(
+                                    'Update Available',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                Flexible(
+                                  child: Text(
+                                    "Version: ${context.watch<OptionsProvider>().availableVersion}",
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.close),
+                              onPressed: () {
+                                context
+                                    .read<OptionsProvider>()
+                                    .toggleCheckUpdate();
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  })
+              : const SizedBox(),
+        ]),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(

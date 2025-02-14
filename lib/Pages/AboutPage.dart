@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatelessWidget {
   @override
@@ -60,6 +61,19 @@ class AboutPage extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.launch,
+          size: 30,
+          color: IconTheme.of(context).color,
+        ),
+        onPressed: () {
+          launchUrl(
+            Uri.parse("https://github.com/NasheethAhmedA/ikrah"),
+            mode: LaunchMode.externalApplication,
+          );
+        },
       ),
     );
   }

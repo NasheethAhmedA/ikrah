@@ -159,6 +159,13 @@ class AppDataProvider with ChangeNotifier, DiagnosticableTreeMixin {
     notifyListeners();
   }
 
+  void gotoAyah(int surah, int ayah) {
+    _CurrentAyah = surahAyahToGlobalAyah(surah, ayah);
+    _db.updateCurrentAyah(_CurrentAyah);
+    _selectedIndex = 1;
+    notifyListeners();
+  }
+
   void setCurrentAyah(int ayah) {
     _CurrentAyah = ayah;
     _db.updateCurrentAyah(_CurrentAyah);

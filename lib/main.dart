@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ikrah/Models/settings.dart';
 import 'package:ikrah/Pages/MainPage.dart';
 import 'package:ikrah/Providers/AppDataProvider.dart';
 import 'package:ikrah/Providers/OptionsProvider.dart';
@@ -13,6 +12,7 @@ Future<void> main() async {
   final options = OptionsProvider();
   final appdata = AppDataProvider();
   await options.getSettings();
+  options.getPackageVersion();
   appdata.setCurrentAyah(await db.getCurrentAyah());
 
   runApp(

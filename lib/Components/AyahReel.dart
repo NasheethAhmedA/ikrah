@@ -19,8 +19,8 @@ Future<String> getAyahText(
 }
 
 Future<Map<String, dynamic>> getAyahOBJ({required int AyahNo}) async {
-  final response =
-      await http.get(Uri.parse('http://api.alquran.cloud/v1/ayah/$AyahNo'));
+  final response = await http
+      .get(Uri.parse('http://api.alquran.cloud/v1/ayah/$AyahNo/quran-uthmani'));
   return json.decode(response.body)["data"] as Map<String, dynamic>;
 }
 
@@ -91,7 +91,7 @@ class _AyahReelState extends State<AyahReel> {
             : AyahOBJ["sajda"]["obligatory"];
       });
       await _player.setUrl(
-          "https://cdn.islamic.network/quran/audio/128/ar.alafasy/${widget.ayahNumber}.mp3");
+          "https://cdn.islamic.network/quran/audio/128/ar.alafasy-2/${widget.ayahNumber}.mp3");
       _player.positionStream.listen((event) {
         if (_player.duration != null &&
             event.inMilliseconds == _player.duration!.inMilliseconds) {

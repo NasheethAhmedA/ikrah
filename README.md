@@ -2,6 +2,8 @@
 
 Ikrah Allows users to read the Quran in a continuous scrolling format, bookmark verses, add journals, listen to audio recitations, and access translations in English.
 
+Download the latest release for android [here](#download-for-android).
+
 ## Features
 
 - **User-friendly Interface**: Easy to navigate and use.
@@ -17,10 +19,10 @@ Ikrah Allows users to read the Quran in a continuous scrolling format, bookmark 
 
 ## Features to be Added
 
-- **Multiple Languages**: Support for multiple languages.
-- **Search Functionality**: Quickly find specific verses or chapters.
+- **Multiple Languages**: Support for multiple translation languages.
+- **Search Functionality**: Quickly find specific words in verses or chapters.
 - **Comments**: Share your thoughts and reflections on verses to everyone.
-- **More suggestions are welcome!**
+- **More suggestions are welcome!** : check our [contributing](#contributing) section.
 
 ## Installation (Development)
 
@@ -43,9 +45,15 @@ To get started with IKRAH, follow these steps:
     flutter run
     ```
 
+## Download for Android
+check our latest releases for android.
+[Download](https://github.com/NasheethAhmedA/ikrah/releases/latest/download/ikrah.apk)
+
 ## Contributing
 
-We welcome contributions! Please contact us for more details.
+We welcome contributions! 
+If you have any suggestions, bug reports, or feature requests, please open an issue on GitHub.
+For more details,
 Contact details [Nasheeth Ahmed A](mailto:nasheethahmeda04+ikrah@google.com)
 
 ## License
