@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -88,6 +90,16 @@ class _AllSurahPageState extends State<AllSurahPage> {
                       TextButton(
                         onPressed: () => Navigator.pop(context),
                         child: const Text('Cancel'),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Random random = Random();
+                          context
+                              .read<AppDataProvider>()
+                              .setAyahSelected((random.nextInt(6236) + 1));
+                          Navigator.pop(context);
+                        },
+                        child: const Text('Randomize '),
                       ),
                       TextButton(
                         onPressed: () {

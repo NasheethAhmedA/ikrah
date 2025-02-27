@@ -289,17 +289,32 @@ class _AyahReelState extends State<AyahReel> {
                                     style: TextStyle(
                                       decoration: TextDecoration.underline,
                                     ))),
-                            content: Text(
-                              "Ayah no: ${AyahOBJ["number"]}\n"
-                              "Surah no: ${AyahOBJ["surah"]["number"]}\n"
-                              "Surah Name: ${AyahOBJ["surah"]["name"]}\n"
-                              "Surah English Name: ${AyahOBJ["surah"]["englishName"]}\n"
-                              "Surah English Name Translation: ${AyahOBJ["surah"]["englishNameTranslation"]}\n"
-                              "Revelation Type: ${AyahOBJ["surah"]["revelationType"]}\n"
-                              "Ayah no in Surah: ${AyahOBJ["numberInSurah"]}\n"
-                              "Juz: ${AyahOBJ["juz"]}\n"
-                              "Manzil: ${AyahOBJ["manzil"]}\n",
-                              textAlign: TextAlign.justify,
+                            content: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                    "${AyahOBJ["surah"]["englishName"]}\n"
+                                    "${AyahOBJ["surah"]["englishNameTranslation"]}\n"
+                                    "${AyahOBJ["surah"]["number"]}:${AyahOBJ["numberInSurah"]}",
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                Text(
+                                  "Ayah no: ${AyahOBJ["number"]}\n"
+                                  "Surah no: ${AyahOBJ["surah"]["number"]}\n"
+                                  "Ayah no in Surah: ${AyahOBJ["numberInSurah"]}\n"
+                                  "Surah Name: ${AyahOBJ["surah"]["name"]}\n"
+                                  "Surah Name in English: ${AyahOBJ["surah"]["englishName"]}\n"
+                                  "Surah Name Translation in English: ${AyahOBJ["surah"]["englishNameTranslation"]}\n"
+                                  "Revelation Type: ${AyahOBJ["surah"]["revelationType"]}\n"
+                                  "Juz: ${AyahOBJ["juz"]}\n"
+                                  "Manzil: ${AyahOBJ["manzil"]}\n",
+                                  textAlign: TextAlign.justify,
+                                ),
+                              ],
                             ),
                             actions: [
                               TextButton(

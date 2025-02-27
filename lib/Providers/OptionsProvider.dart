@@ -23,6 +23,7 @@ class OptionsProvider with ChangeNotifier, DiagnosticableTreeMixin {
     _updateAvailable = false;
     _availableVersion = "";
     _currentVersion = "";
+    _checkUpdate = true;
     _darkMode = false;
     _playMode = 'once';
   }
