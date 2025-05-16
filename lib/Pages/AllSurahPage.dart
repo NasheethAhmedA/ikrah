@@ -64,27 +64,31 @@ class _AllSurahPageState extends State<AllSurahPage> {
               builder: (context) {
                 return Center(
                   child: AlertDialog(
-                    actionsAlignment: MainAxisAlignment.spaceBetween,
+                    actionsAlignment: MainAxisAlignment.spaceAround,
+                    actionsOverflowAlignment: OverflowBarAlignment.center,
+                    actionsOverflowDirection: VerticalDirection.down,
                     title:
                         const Text('Go To Ayah', textAlign: TextAlign.center),
-                    content: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        TextField(
-                          controller: surahNoController,
-                          keyboardType: TextInputType.number,
-                          decoration: const InputDecoration(
-                            labelText: 'Surah Number',
+                    content: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          TextField(
+                            controller: surahNoController,
+                            keyboardType: TextInputType.number,
+                            decoration: const InputDecoration(
+                              labelText: 'Surah Number',
+                            ),
                           ),
-                        ),
-                        TextField(
-                          controller: ayahNoController,
-                          keyboardType: TextInputType.number,
-                          decoration: const InputDecoration(
-                            labelText: 'Ayah Number',
+                          TextField(
+                            controller: ayahNoController,
+                            keyboardType: TextInputType.number,
+                            decoration: const InputDecoration(
+                              labelText: 'Ayah Number',
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                     actions: [
                       TextButton(
@@ -99,7 +103,7 @@ class _AllSurahPageState extends State<AllSurahPage> {
                               .setAyahSelected((random.nextInt(6236) + 1));
                           Navigator.pop(context);
                         },
-                        child: const Text('Randomize '),
+                        child: const Text('Randomize'),
                       ),
                       TextButton(
                         onPressed: () {
